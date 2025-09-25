@@ -9,10 +9,16 @@ class Quiz extends StatefulWidget {
   State<Quiz> createState() {
     return _QuizState();
   }
+
 }
 
 class _QuizState extends State<Quiz> {
-  Widget activeScreen = StartScreen();
+  Widget ? activeScreen;
+  @override
+  void initState() {
+    activeScreen = StartScreen(switchScreen);
+    super.initState();
+  }
 
   void switchScreen() {
     setState(() {
@@ -23,6 +29,7 @@ class _QuizState extends State<Quiz> {
 
   @override
   Widget build(BuildContext context) {
+    
     return MaterialApp(
       home: Scaffold(
         body: Container(

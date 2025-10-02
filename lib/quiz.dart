@@ -17,6 +17,7 @@ class Quiz extends StatefulWidget {
 class _QuizState extends State<Quiz> {
   Widget ? activeScreen;
   List<String> selectedAnswers = [];
+  
   void choosenAnswer(String answer) {
     selectedAnswers.add(answer);
     if(selectedAnswers.length == questions.length){

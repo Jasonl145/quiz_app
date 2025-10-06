@@ -12,16 +12,18 @@ class QuestionsSummary extends StatelessWidget{
       children: summaryData.map(
         (data){
           return Row(
+            crossAxisAlignment: CrossAxisAlignment.start,
             
             children: [
               
               Text(
                 ((data['question_index']as int) + 1).toString(),
-                style: const TextStyle(
-                  color: Colors.black,
+                style: TextStyle(
+                  color: (data['correct_answer'] == data['user_answer']) ? Colors.black : Colors.white,
                   fontSize: 18,
                   fontWeight: FontWeight.bold,
-                )
+                ),
+                textAlign: TextAlign.left,
               ),
               Expanded(
                 

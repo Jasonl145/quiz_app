@@ -8,65 +8,70 @@ class QuestionsSummary extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
-    return Column(
-      children: summaryData.map(
-        (data){
-          return Row(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            
-            children: [
-              
-              Text(
-                ((data['question_index']as int) + 1).toString(),
-                style: TextStyle(
-                  color: (data['correct_answer'] == data['user_answer']) ? Colors.black : Colors.white,
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-                textAlign: TextAlign.left,
-              ),
-              Expanded(
+    return SizedBox(
+      height: 400,
+      child: SingleChildScrollView(
+        child: Column(
+          children: summaryData.map(
+            (data){
+              return Row(
+                crossAxisAlignment: CrossAxisAlignment.start,
                 
-                child: Padding(
-                  padding: const EdgeInsets.only(left: 40, bottom: 20),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text(
-                        data['question'] as String,
-                        style: const TextStyle(
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold,
-                          fontSize: 18,
-                        ),
-                        textAlign: TextAlign.left,
-                      ),
-                      const SizedBox(
-                        height: 5,
-                      ),
-                      Text(
-                        data['correct_answer'] as String,
-                        style: const TextStyle(
-                          color: Colors.grey,
-                          fontSize: 18,
-                        ),
-                      ),
-                      Text(
-                        data['user_answer'] as String,
-                        style: const TextStyle(
-                          color: Colors.lightBlue, 
-                          fontSize: 18,
-                        ),
-                      ),
-                    ],
+                children: [
+                  
+                  Text(
+                    ((data['question_index']as int) + 1).toString(),
+                    style: TextStyle(
+                      color: (data['correct_answer'] == data['user_answer']) ? Colors.black : Colors.white,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
+                    textAlign: TextAlign.left,
                   ),
-                ),
-              )
-            ],
-
-          );
-        }
-      ).toList(),
+                  Expanded(
+                    
+                    child: Padding(
+                      padding: const EdgeInsets.only(left: 40, bottom: 20),
+                      child: Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(
+                            data['question'] as String,
+                            style: const TextStyle(
+                              color: Colors.white,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 18,
+                            ),
+                            textAlign: TextAlign.left,
+                          ),
+                          const SizedBox(
+                            height: 5,
+                          ),
+                          Text(
+                            data['correct_answer'] as String,
+                            style: const TextStyle(
+                              color: Colors.grey,
+                              fontSize: 18,
+                            ),
+                          ),
+                          Text(
+                            data['user_answer'] as String,
+                            style: const TextStyle(
+                              color: Colors.lightBlue, 
+                              fontSize: 18,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  )
+                ],
+        
+              );
+            }
+          ).toList(),
+        ),
+      ),
     );
   }
 }

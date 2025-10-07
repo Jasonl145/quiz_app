@@ -19,14 +19,24 @@ class QuestionsSummary extends StatelessWidget{
                 
                 children: [
                   
-                  Text(
-                    ((data['question_index']as int) + 1).toString(),
-                    style: TextStyle(
-                      color: (data['correct_answer'] == data['user_answer']) ? Colors.black : Colors.white,
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
+                  Container(
+                    width: 36,
+                    height: 36,
+                    decoration: BoxDecoration(
+                      color: Colors.blueGrey,
+                      shape: BoxShape.circle,
                     ),
-                    textAlign: TextAlign.left,
+                    child: Center(
+                      child: Text(
+                        ((data['question_index']as int) + 1).toString(),
+                        style: TextStyle(
+                          color: (data['correct_answer'] == data['user_answer']) ? Colors.black : Colors.white,
+                          fontSize: 18,
+                          fontWeight: FontWeight.bold,
+                        ),
+                        textAlign: TextAlign.left,
+                      ),
+                    ),
                   ),
                   Expanded(
                     
